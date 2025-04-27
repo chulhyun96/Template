@@ -1,5 +1,7 @@
 package com.example.demo.post.entity;
 
+import com.example.demo.post.dto.request.PostCreateRequest;
+import com.example.demo.post.dto.response.PostCreateResponse;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,4 +23,13 @@ public class Post {
     private String title;
     private String content;
     private LocalDateTime createdAt;
+
+    public static Post from(PostCreateRequest request, LocalDateTime now) {
+        return Post.builder()
+                .title(request.getTitle())
+                .content(request.getContent())
+                .createdAt(now)
+                .build();
+
+    }
 }

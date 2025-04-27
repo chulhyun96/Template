@@ -2,11 +2,13 @@ package com.example.demo.post.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Schema(description = "게시글 생성 요청 DTO 클래스")
 public class PostCreateRequest {
     @Schema(description = "게시글 제목")

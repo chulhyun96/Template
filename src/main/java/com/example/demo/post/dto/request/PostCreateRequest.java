@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@Schema(description = "새로운 게시글 요청 DTO 클래스")
+@Schema(description = "게시글 생성 요청 DTO 클래스")
 public class PostCreateRequest {
     @Schema(description = "게시글 제목")
     @NotBlank(message = "제목은 비어있을 수 없습니다.")

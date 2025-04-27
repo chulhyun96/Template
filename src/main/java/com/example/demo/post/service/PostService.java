@@ -16,6 +16,6 @@ public class PostService {
 
     public PostCreateResponse save(PostCreateRequest request, LocalDateTime now) {
         Post savedPost = repository.save(Post.from(request, now));
-        return savedPost.toModel();
+        return PostCreateResponse.from(savedPost);
     }
 }

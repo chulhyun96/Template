@@ -1,5 +1,6 @@
 package com.example.demo.app.exception;
 
+import com.example.demo.post.exception.PostException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -22,6 +23,12 @@ public class GlobalExceptionHandler {
         response.put("status", HttpStatus.BAD_REQUEST);
         response.put("message", "잘못된 요청입니다.");
         response.put("errors", errors);
+        return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler(PostException.class)
+    public ResponseEntity<ErrorResponse> postException(PostException ex) {
+        ErrorResponse response = new ErrorResponse(ex.getErrorCode(), ex.getErrorMessage());
         return ResponseEntity.badRequest().body(response);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.post.dto.response;
 
+import com.example.demo.post.entity.Post;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,4 +23,8 @@ public class PostCreateResponse {
 
     @Schema(description = "게시글 생성 날짜")
     private LocalDateTime createdAt;
+
+    public static PostCreateResponse from(Post savedPost) {
+        return new PostCreateResponse(savedPost.getTitle(), savedPost.getContent(), savedPost.getCreatedAt());
+    }
 }
